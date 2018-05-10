@@ -1,0 +1,145 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Cointrack",
+    "description": "Cointrack portfolio management",
+    "termsOfService": "https://cointrack.com.au/#/privacy",
+    "contact": {
+      "name": "Jan Fischer",
+      "url": "https://cointrack.com.au",
+      "email": "jan@csoft.com.au"
+    },
+    "license": {
+      "name": "Use under LICX",
+      "url": "https://example.com/license"
+    }
+  },
+  "paths": {
+    "/api/v1/Crypto/portfolioOverview": {
+      "get": {
+        "tags": [ "Crypto" ],
+        "operationId": "ApiV1CryptoPortfolioOverviewGet",
+        "consumes": [],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "tokenString",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/MdlPortFolioStats" }
+          }
+        }
+      }
+    },
+    "/api/v1/Crypto/portfolioHistory": {
+      "get": {
+        "tags": [ "Crypto" ],
+        "operationId": "ApiV1CryptoPortfolioHistoryGet",
+        "consumes": [],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "tokenString",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/MdlPortFolioStats" }
+          }
+        }
+      }
+    },
+    "/api/v1/Crypto/portfolioCoinStats": {
+      "get": {
+        "tags": [ "Crypto" ],
+        "operationId": "ApiV1CryptoPortfolioCoinStatsGet",
+        "consumes": [],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "tokenString",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/MdlPortFolioStats" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "MdlPortFolioStats": {
+      "type": "object",
+      "properties": {
+        "hold_qnt": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "hold_val": {
+          "format": "double",
+          "type": "number"
+        },
+        "hold_Purchased": {
+          "format": "double",
+          "type": "number"
+        },
+        "hold_profit": {
+          "format": "double",
+          "type": "number"
+        },
+        "hold_profitperc": {
+          "format": "double",
+          "type": "number"
+        },
+        "sold_qnt": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sold_val": {
+          "format": "double",
+          "type": "number"
+        },
+        "sold_Purchased": {
+          "format": "double",
+          "type": "number"
+        },
+        "sold_profit": {
+          "format": "double",
+          "type": "number"
+        },
+        "sold_profitperc": {
+          "format": "double",
+          "type": "number"
+        },
+        "tot_invested": {
+          "format": "double",
+          "type": "number"
+        },
+        "tot_profit": {
+          "format": "double",
+          "type": "number"
+        },
+        "tot_profitperc": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    }
+  }
+}
